@@ -1,0 +1,9 @@
+from typing import Protocol
+
+class WorkflowRepository(Protocol):
+    async def add(self, workflow_run) -> None:
+        ...
+    async def get(self, workflow_run_id: str):
+        ...
+    async def update(self, workflow_run) -> None:
+        ...

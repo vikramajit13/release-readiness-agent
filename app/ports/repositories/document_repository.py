@@ -1,0 +1,9 @@
+from typing import Protocol
+
+class DocumentRepository(Protocol):
+    async def add(self, document) -> None:
+        ...
+    async def get(self, document_id: str):
+        ...
+    async def update(self, document) -> None:
+        ...
