@@ -1,7 +1,7 @@
 from typing import Protocol
 
 class QueuePort(Protocol):
-    async def publish(self, topic: str, payload: dict) -> None:
-        print("publish")
+    async def publish(self, payload: dict) -> None:
+        ...
         
     
