@@ -4,8 +4,8 @@ from datetime import datetime
 
 @dataclass
 class DocumentVersion:
-    document_version_id: int
-    document_id: int
+    document_version_id: str
+    document_pk: int
     version_number: int
     storage_key: str
     mime_type: str
