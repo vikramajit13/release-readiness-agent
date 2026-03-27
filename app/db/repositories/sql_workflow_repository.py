@@ -41,9 +41,37 @@ class SqlWorkflowRepository(WorkflowRepository):
         )
 
     async def update(self, workflow_run: WorkflowRun) -> None:
-        ...
-        
+        stmt = select(WorkflowRunModel).where(
+            WorkflowRunModel.id == workflow_run.workflow_run_id
+        )
+        result = await self.session.execute(stmt)
+        model = result.scalar_one_or_none()
+
+        if model is None:
+            raise ValueError(f"Wokflow not found: {workflow_run.document_version_id}")
+
+        model.name = workflow_run.name
+        model.status = workflow_run.status
+        model.updated_at = workflow_run.updated_at
 
     async def get_by_document_version_pk(
         self, document_version_pk: int
-    ) -> list[WorkflowRun]: ...
+    ) -> list[WorkflowRun]:
+        stmt = select(WorkflowRunModel).where(
+            WorkflowRunModel.document_version_id == document_version_pk
+        )
+        result = await self.session.execute(stmt)
+        models = result.scalars().all()
+
+        return [
+            WorkflowRun(
+                workflow_run_id=model.id,
+                name=model.name,
+                status=model.status,
+                created_at=model.created_at,
+                document_version_id=model.document_version_id,
+                updated_at=model.updated_at,
+                error_message=model.error_message
+            )
+            for model in models
+        ]
