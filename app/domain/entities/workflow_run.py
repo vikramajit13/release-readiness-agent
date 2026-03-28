@@ -8,7 +8,7 @@ class WorkflowRun:
     workflow_run_id: int
     name: str
     status: WorkflowStatus
-    document_version_id: str
+    document_version_id: int
     created_at: datetime
     updated_at: datetime
     error_message: str | None = None
