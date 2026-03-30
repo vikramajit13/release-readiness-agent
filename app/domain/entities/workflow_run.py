@@ -1,11 +1,11 @@
 from dataclasses import dataclass
 from datetime import datetime
-from ..enums.workflow_status import WorkflowStatus
+from app.domain.enums.workflow_status import WorkflowStatus
 
 
 @dataclass
 class WorkflowRun:
-    workflow_run_id: int
+    workflow_run_id: int | None
     name: str
     status: WorkflowStatus
     document_version_id: int

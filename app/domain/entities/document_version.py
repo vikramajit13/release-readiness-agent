@@ -4,6 +4,7 @@ from datetime import datetime
 
 @dataclass
 class DocumentVersion:
+    id: int | None
     document_version_id: str
     document_pk: int
     version_number: int
