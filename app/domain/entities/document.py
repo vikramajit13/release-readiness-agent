@@ -4,6 +4,7 @@ from datetime import datetime
 
 @dataclass
 class Document:
+    id: int | None
     document_id: str
     document_type: str
     name: str
