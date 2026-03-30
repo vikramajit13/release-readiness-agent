@@ -2,7 +2,7 @@ from dotenv import find_dotenv
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
-    app_name: str = "RELEASE_READINESS-AGENT"
+    app_name: str = "RELEASE-READINESS-AGENT"
     DATABASE_URL: str
     EMBEDDING_MODEL: str
     ENCODER_MODEL: str

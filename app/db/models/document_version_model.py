@@ -42,6 +42,11 @@ class DocumentVersionModel(Base):
         String(255),
         nullable=False,
     )
+    checksum: Mapped[str] = mapped_column(
+        String(64),
+        nullable=False,
+        index=True
+    )
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
