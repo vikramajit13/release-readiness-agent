@@ -9,13 +9,13 @@ from app.ports.services.clock_port import ClockPort
 from app.ports.services.id_generator_port import IdGeneratorPort
 from app.ports.services.object_storage_port import ObjectStoragePort
 from app.ports.services.queue_port import QueuePort
-from app.db.unit_of_work.uow_factory import UOW_factory
+
 
 
 class IngestDocumentUseCase:
     def __init__(
         self,
-        uow_factory: UOW_factory,
+        uow_factory,
         storage: ObjectStoragePort,
         queue: QueuePort,
         id_generator: IdGeneratorPort,
@@ -50,6 +50,7 @@ class IngestDocumentUseCase:
         checksum = hashlib.sha256(content_bytes).hexdigest()
 
         document = Document(
+            id=None,
             document_id=document_id,
             document_type=document_type,
             name=filename,
@@ -70,11 +71,13 @@ class IngestDocumentUseCase:
             # This assumes your Document domain entity includes internal DB pk.
             # If not, your repository contract needs adjusting.
             version = DocumentVersion(
+                id=None,
                 document_version_id=document_version_id,
                 document_pk=persisted_document.id,
                 version_number=1,
                 storage_key=uploaded_storage_key,
                 mime_type=content_type,
+                checksum=checksum,
                 created_at=now,
                 updated_at=now,
             )

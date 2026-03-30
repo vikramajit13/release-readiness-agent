@@ -9,6 +9,7 @@ class DocumentVersion:
     document_pk: int
     version_number: int
     storage_key: str
+    checksum: str
     mime_type: str
     created_at: datetime
     updated_at: datetime

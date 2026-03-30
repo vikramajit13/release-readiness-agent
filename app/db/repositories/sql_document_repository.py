@@ -57,6 +57,7 @@ class SqlDocumentRepository(DocumentRepository):
             version_number=document_version.version_number,
             storage_key=document_version.storage_key,
             mime_type=document_version.mime_type,
+            checksum =document_version.checksum,
             created_at=document_version.created_at,
             updated_at=document_version.updated_at,
         )
@@ -81,6 +82,7 @@ class SqlDocumentRepository(DocumentRepository):
             version_number=model.version_number,
             storage_key=model.storage_key,
             mime_type=model.mime_type,
+            checksum=model.checksum,
             created_at=model.created_at,
             updated_at=model.updated_at,
         )
@@ -100,6 +102,7 @@ class SqlDocumentRepository(DocumentRepository):
                 version_number=model.version_number,
                 storage_key=model.storage_key,
                 mime_type=model.mime_type,
+                checksum=model.checksum,
                 created_at=model.created_at,
                 updated_at=model.updated_at,
             )

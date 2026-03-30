@@ -4,7 +4,7 @@ from app.db.unit_of_work.sqlalchemy_uow import SqlAlchemyUnitOfWork
 from app.infrastructure.config.settings import settings
 
 def get_uow_factory():
-    return SqlAlchemyUnitOfWork()
+    return SqlAlchemyUnitOfWork
 
 
 def get_object_storage():
@@ -25,5 +25,5 @@ def get_queue():
         aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
         aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
         aws_session_token=settings.AWS_SESSION_TOKEN,
-        endpoint_url=settings.sqs_endpoint_url,
+        endpoint_url=settings.SQS_ENDPOINT_URL,
     )
