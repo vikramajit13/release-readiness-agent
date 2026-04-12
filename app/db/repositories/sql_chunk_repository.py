@@ -100,7 +100,6 @@ class SqlChunkRepository(ChunkRepository):
                 "query_text": query_text,
                 "query_embedding": embedding_literal,
                 "top_k": top_k,
-                "candidate_k": candidate_k,
                 "document_id": document_id,
             },
         )

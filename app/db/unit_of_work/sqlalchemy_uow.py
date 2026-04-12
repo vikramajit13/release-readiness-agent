@@ -1,6 +1,7 @@
 from app.db.repositories.sql_document_repository import SqlDocumentRepository
 from app.db.repositories.sql_workflow_repository import SqlWorkflowRepository
 from app.db.session import AsyncSessionFactory
+from app.db.repositories.sql_chunk_repository import SqlChunkRepository
 
 
 class SqlAlchemyUnitOfWork:
