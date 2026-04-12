@@ -3,13 +3,11 @@ from datetime import datetime
 
 
 @dataclass
-class Chunk:
-    id: int | None
+class RetrievedChunk:
     chunk_id: str
     document_id: str
     document_version_pk: int
     chunk_index: int
     chunk_text: str
-    embedding: list[float]
     metadata_json: dict
-    created_at: datetime
+    score: float
